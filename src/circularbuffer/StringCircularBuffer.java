@@ -1,21 +1,23 @@
+package circularbuffer;
+
 /**
  * Circular Buffer
  *
  * Writes (offer) in data if not already set
  * Reads (poll) the output if present, once read clears the data and points to next available entry
- * 
+ *
  */
-public class CircularBuffer {
+public class StringCircularBuffer {
 
-    private Object[] _buffer;
+    private String[] _buffer;
     private int readCursor = 0;
     private int writeCursor = 0;
 
-    public CircularBuffer(int size) {
-	_buffer = new Object[size];
+    public StringCircularBuffer(int size) {
+	_buffer = new String[size];
     }
 
-    public boolean offer(Integer value) {
+    public boolean offer(String value) {
         if (_buffer[writeCursor] != null) {
             return false;
         }
@@ -25,8 +27,8 @@ public class CircularBuffer {
 	return true;
     }
 
-    public Object poll() {
-        final Object value = _buffer[readCursor];
+    public String poll() {
+        final String value = _buffer[readCursor];
 
         // should be optional
         if (value != null) {
