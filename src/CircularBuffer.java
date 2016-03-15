@@ -1,3 +1,10 @@
+/**
+ * Circular Buffer
+ *
+ * Writes (offer) in data if not already set
+ * Reads (poll) the output if present, once read clears the data and points to next available entry
+ * 
+ */
 public class CircularBuffer {
 
     private Object[] _buffer;
